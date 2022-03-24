@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="700.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+      <Label layoutX="233.0" prefHeight="53.0" prefWidth="235.0" text="Task Manager" textAlignment="CENTER" textFill="#e8d440" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Italic" size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="taskName" layoutX="14.0" layoutY="120.0" prefHeight="25.0" prefWidth="171.0" promptText="Название задачи" />
+      <TextField fx:id="author" layoutX="14.0" layoutY="170.0" prefHeight="25.0" prefWidth="171.0" promptText="Автор" />
+      <TextField fx:id="id" layoutX="14.0" layoutY="283.0" prefHeight="25.0" prefWidth="171.0" promptText="Id" />
+      <Label layoutX="14.0" layoutY="74.0" prefHeight="35.0" prefWidth="312.0" text="Добавить новую задачу:" textFill="#e8d440">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="237.0" prefHeight="35.0" prefWidth="272.0" text="Удалить задачу:" textFill="#e8d440">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="addButton" layoutX="207.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Добавить" />
+      <Button fx:id="deleteButton" layoutX="207.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Удалить" />
+</AnchorPane>
