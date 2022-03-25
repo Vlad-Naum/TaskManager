@@ -25,4 +25,16 @@
       </Label>
       <Button fx:id="addButton" layoutX="207.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Добавить" />
       <Button fx:id="deleteButton" layoutX="207.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Удалить" />
+   <Label layoutX="350.0" layoutY="74.0" prefHeight="25.0" prefWidth="272.0" text="Список задача:" textFill="#e8d440">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <TableView fx:id="tableView" layoutX="342.0" layoutY="120.0" prefHeight="200.0" prefWidth="340.0" style="-fx-background-color: #E0FFFF;">
+     <columns>
+       <TableColumn fx:id="taskId" prefWidth="60.0" text="Id" />
+       <TableColumn fx:id="taskNameProperty" prefWidth="173.0" text="Название задачи" />
+       <TableColumn fx:id="taskAuthor" prefWidth="106.0" text="Автор" />
+     </columns>
+   </TableView>
 </AnchorPane>

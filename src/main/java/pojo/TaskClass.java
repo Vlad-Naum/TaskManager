@@ -1,46 +1,46 @@
 package pojo;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class TaskClass {
 
-    private int id;
-    private String taskName;
-    private String author;
+    private final SimpleStringProperty taskId;
+    private final SimpleStringProperty taskNameProperty;
+    private final SimpleStringProperty taskAuthor;
 
     public TaskClass() {
+        taskId = new SimpleStringProperty();
+        taskNameProperty = new SimpleStringProperty();
+        taskAuthor = new SimpleStringProperty();
     }
 
-    public TaskClass(int id, String taskName, String author) {
-        this.id = id;
-        this.taskName = taskName;
-        this.author = author;
+    public TaskClass(int taskId, String taskNameProperty, String taskAuthor) {
+        this.taskId = new SimpleStringProperty(String.valueOf(taskId));
+        this.taskNameProperty = new SimpleStringProperty(taskNameProperty);
+        this.taskAuthor = new SimpleStringProperty(taskAuthor);
     }
 
-    public TaskClass(String taskName, String author) {
-        this.taskName = taskName;
-        this.author = author;
+    public String getTaskId() {
+        return taskId.get();
     }
 
-    public int getId() {
-        return id;
+    public void setTaskId(Integer taskId) {
+        this.taskId.set(String.valueOf(taskId));
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getTaskNameProperty() {
+        return taskNameProperty.get();
     }
 
-    public String getTaskName() {
-        return taskName;
+    public void setTaskNameProperty(String taskNameProperty) {
+        this.taskNameProperty.set(taskNameProperty);
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public String getTaskAuthor() {
+        return taskAuthor.get();
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setTaskAuthor(String taskAuthor) {
+        this.taskAuthor.set(taskAuthor);
     }
 }

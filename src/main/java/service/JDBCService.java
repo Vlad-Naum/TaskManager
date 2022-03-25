@@ -49,9 +49,9 @@ public class JDBCService {
 
             while (resultSet.next()) {
                 TaskClass task = new TaskClass();
-                task.setId(resultSet.getInt("id"));
-                task.setAuthor(resultSet.getString("author"));
-                task.setTaskName(resultSet.getString("task_name"));
+                task.setTaskId(resultSet.getInt("id"));
+                task.setTaskAuthor(resultSet.getString("author"));
+                task.setTaskNameProperty(resultSet.getString("task_name"));
                 list.add(task);
             }
         } catch (SQLException throwables) {
