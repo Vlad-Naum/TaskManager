@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnectionController">
+   <children>
+       <Label layoutX="139.0" layoutY="21.0" text="Подключение к БД:" textFill="#e8d440">
+           <font>
+               <Font size="36.0" />
+           </font>
+       </Label>
+       <TextField fx:id="url" layoutX="300.0" layoutY="111.0" prefHeight="30.0" prefWidth="206.0" promptText="jdbc:mysql://localhost:3306/task_manager">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </TextField>
+       <TextField fx:id="password" layoutX="301.0" layoutY="237.0" prefHeight="30.0" prefWidth="206.0" promptText="1234">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </TextField>
+       <TextField fx:id="userName" layoutX="300.0" layoutY="171.0" prefHeight="30.0" prefWidth="206.0" promptText="root">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </TextField>
+       <Label layoutX="132.0" layoutY="114.0" text="URL адрес:" textFill="#e8d440">
+           <font>
+               <Font size="18.0" />
+           </font>
+       </Label>
+       <Label layoutX="132.0" layoutY="238.0" text="Пароль:" textFill="#e8d440">
+           <font>
+               <Font size="18.0" />
+           </font>
+       </Label>
+       <Label layoutX="132.0" layoutY="172.0" text="Имя пользователя:" textFill="#e8d440">
+           <font>
+               <Font size="18.0" />
+           </font>
+       </Label>
+      <Button fx:id="connection" layoutX="228.0" layoutY="304.0" mnemonicParsing="false" style="-fx-background-color: #e8d440;" text="Подключиться">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

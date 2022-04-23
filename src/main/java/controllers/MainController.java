@@ -1,3 +1,5 @@
+package controllers;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,7 +11,7 @@ import service.JDBCService;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Controller {
+public class MainController {
 
     @FXML
     private Button addButton;
