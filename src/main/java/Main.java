@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     public static void main(String[] args) {
-        Application.launch();
+        launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/connection.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

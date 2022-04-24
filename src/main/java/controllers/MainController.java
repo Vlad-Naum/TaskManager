@@ -42,24 +42,28 @@ public class MainController {
 
     @FXML
     void initialize() throws SQLException {
-        JDBCService service = new JDBCService();
+        JDBCService jdbcService = JDBCService.getInstance();
 
-        tableInit(service);
+        if (jdbcService == null) {
+            //TODO: выкинуть исключение
+        }
+
+        tableInit(jdbcService);
 
         addButton.setOnAction(event -> {
             if (taskName != null && author != null) {
-                service.add(taskName.getText(), author.getText());
+                jdbcService.add(taskName.getText(), author.getText());
                 taskName.clear();
                 author.clear();
-                tableInit(service);
+                tableInit(jdbcService);
             }
         });
 
         deleteButton.setOnAction(event -> {
             if (id != null) {
-                service.delete(Integer.parseInt(id.getText()));
+                jdbcService.delete(Integer.parseInt(id.getText()));
                 id.clear();
-                tableInit(service);
+                tableInit(jdbcService);
             }
         });
     }

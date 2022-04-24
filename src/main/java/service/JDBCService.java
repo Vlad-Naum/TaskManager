@@ -2,19 +2,18 @@ package service;
 
 import pojo.TaskClass;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class JDBCService {
 
+    private static JDBCService jdbcService;
+
     private final Connection connection;
 
-    public JDBCService() throws SQLException {
-        this.connection = getConnection();
+    private JDBCService(String url, String userName, String password) throws SQLException {
+        this.connection = DriverManager.getConnection(url, userName, password);
     }
 
     public void add(String taskName, String author) {
@@ -61,18 +60,13 @@ public class JDBCService {
         return list;
     }
 
-    private static Connection getConnection() throws SQLException {
-        Properties properties = new Properties();
-        try {
-            properties.load(new FileInputStream("src/main/resources/connection.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void createInstance(String url, String userName, String password) throws SQLException {
+        if (jdbcService == null) {
+            jdbcService = new JDBCService(url, userName, password);
         }
-
-        return DriverManager.getConnection(
-                properties.getProperty("url"),
-                properties.getProperty("userName"),
-                properties.getProperty("password"));
     }
 
+    public static JDBCService getInstance() {
+        return jdbcService;
+    }
 }
