@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="350.0" prefWidth="700.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnectionController">
    <children>
-       <Label layoutX="211.0" layoutY="27.0" text="Подключение к БД:" textFill="#e8d440">
+       <Label layoutX="120.0" layoutY="27.0" prefHeight="53.0" prefWidth="496.0" text="Подключение к базе данных:" textFill="#e8d440">
            <font>
                <Font size="36.0" />
            </font>
@@ -16,11 +16,11 @@
                <Font size="14.0" />
            </font>
        </TextField>
-       <TextField fx:id="password" layoutX="362.0" layoutY="238.0" prefHeight="30.0" prefWidth="206.0" promptText="1234">
+       <PasswordField fx:id="password" layoutX="362.0" layoutY="238.0" prefHeight="30.0" prefWidth="206.0" promptText="1234">
            <font>
                <Font size="14.0" />
            </font>
-       </TextField>
+       </PasswordField>
        <TextField fx:id="userName" layoutX="362.0" layoutY="172.0" prefHeight="30.0" prefWidth="206.0" promptText="root">
            <font>
                <Font size="14.0" />
