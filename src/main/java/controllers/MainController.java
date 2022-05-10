@@ -5,13 +5,19 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.log4j.Logger;
 import pojo.TaskClass;
+import service.AlertService;
 import service.JDBCService;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class MainController {
+
+    public static final Logger log = Logger.getLogger(MainController.class);
+    public static final String ERROR_ADD = "Не удалось создать задачу.";
+    public static final String ERROR_DELETE = "Не удалось удалить задачу.";
+    public static final String ERROR_GET_ALL = "Не удалось получить все задачи.";
 
     @FXML
     private Button addButton;
@@ -41,35 +47,46 @@ public class MainController {
     private TableColumn taskAuthor;
 
     @FXML
-    void initialize() throws SQLException {
+    void initialize() {
         JDBCService jdbcService = JDBCService.getInstance();
 
         if (jdbcService == null) {
-            //TODO: выкинуть исключение
+            log.warn("JDBC service is null!");
+            return;
         }
 
         tableInit(jdbcService);
 
         addButton.setOnAction(event -> {
-            if (taskName != null && author != null) {
+            try {
                 jdbcService.add(taskName.getText(), author.getText());
-                taskName.clear();
-                author.clear();
-                tableInit(jdbcService);
+            } catch (Exception e) {
+                AlertService.showErrorAlert(ERROR_ADD);
             }
+            taskName.clear();
+            author.clear();
+            tableInit(jdbcService);
         });
 
         deleteButton.setOnAction(event -> {
-            if (id != null) {
+            try {
                 jdbcService.delete(Integer.parseInt(id.getText()));
-                id.clear();
-                tableInit(jdbcService);
+            } catch (Exception e) {
+                AlertService.showErrorAlert(ERROR_DELETE);
             }
+            id.clear();
+            tableInit(jdbcService);
         });
     }
 
     public void tableInit(JDBCService service) {
-        List<TaskClass> all = service.getAll();
+        List<TaskClass> all;
+        try {
+            all = service.getAll();
+        } catch (Exception e) {
+            AlertService.showErrorAlert(ERROR_GET_ALL);
+            throw new RuntimeException(e);
+        }
         ObservableList<TaskClass> tasks = FXCollections.observableList(all);
         taskId.setCellValueFactory(new PropertyValueFactory<TaskClass, String>("taskId"));
         taskNameProperty.setCellValueFactory(new PropertyValueFactory<TaskClass, String>("taskNameProperty"));

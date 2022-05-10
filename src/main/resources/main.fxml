@@ -25,7 +25,7 @@
       </Label>
       <Button fx:id="addButton" layoutX="207.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Добавить" />
       <Button fx:id="deleteButton" layoutX="207.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #E0FFFF;" text="Удалить" />
-   <Label layoutX="350.0" layoutY="74.0" prefHeight="25.0" prefWidth="272.0" text="Список задача:" textFill="#e8d440">
+   <Label layoutX="350.0" layoutY="74.0" prefHeight="25.0" prefWidth="272.0" text="Список задач:" textFill="#e8d440">
       <font>
          <Font size="24.0" />
       </font>
